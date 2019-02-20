@@ -52,6 +52,7 @@ object Config {
 
         object DependencyInjection {
             const val koinBase = "org.koin:koin-android:${LibsVersions.koinVersion}"
+            const val koinScope = "org.koin:koin-androidx-scope:${LibsVersions.koinVersion}"
             const val koinViewModel = "org.koin:koin-androidx-viewmodel:${LibsVersions.koinVersion}"
         }
     }

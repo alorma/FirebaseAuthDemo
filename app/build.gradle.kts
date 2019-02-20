@@ -34,6 +34,7 @@ dependencies {
     implementation(Config.Libs.AndroidX.constraint)
 
     implementation(Config.Libs.DependencyInjection.koinBase)
+    implementation(Config.Libs.DependencyInjection.koinScope)
     implementation(Config.Libs.DependencyInjection.koinViewModel)
 
     implementation(Config.Libs.Firebase.core)
