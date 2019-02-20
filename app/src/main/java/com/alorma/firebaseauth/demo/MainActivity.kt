@@ -1,5 +1,6 @@
 package com.alorma.firebaseauth.demo
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -39,6 +40,8 @@ class MainActivity : AppCompatActivity() {
                 signInButton.setOnClickListener {
                     onSignIn()
                 }
+                signOutButton.visibility = View.GONE
+                signOutButton.setOnClickListener(null)
             }
             is UserVM.LoggedUser -> {
                 userInfo.visibility = View.VISIBLE
@@ -49,6 +52,10 @@ class MainActivity : AppCompatActivity() {
                 userPhone.text = user.phone
                 userAvatar?.let {
                     Glide.with(userAvatar).load(user.avatar).into(userAvatar)
+                }
+                signOutButton.visibility = View.VISIBLE
+                signOutButton.setOnClickListener {
+                    onSignOut()
                 }
             }
         }
@@ -69,6 +76,18 @@ class MainActivity : AppCompatActivity() {
             .build()
 
         startActivityForResult(intent, REQUEST_LOGIN)
+    }
+
+    private fun onSignOut() {
+        AuthUI.getInstance().signOut(this).addOnSuccessListener {
+            mainViewModel.loadUser()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        mainViewModel.loadUser()
     }
 
     companion object {

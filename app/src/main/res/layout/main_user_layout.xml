@@ -53,4 +53,14 @@
             tools:text="@tools:sample/us_phones"
             style="@style/UserInfo.Text.Phone"/>
 
+    <com.google.android.material.button.MaterialButton
+            android:id="@+id/signOutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userPhone"
+            android:layout_marginTop="16dp"
+            android:text="@string/signout"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
