@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-android-extensions")
+    id("kotlin-kapt")
 }
 
 android {
@@ -27,22 +28,17 @@ android {
 dependencies {
     implementation(Config.Libs.Kotlin.jvm)
 
-    implementation(Config.Libs.AndroidX.appCompat)
-    implementation(Config.Libs.Design.material)
-    implementation(Config.Libs.Design.material)
-    implementation(Config.Libs.AndroidX.coreKtx)
-    implementation(Config.Libs.AndroidX.constraint)
-
-    implementation(Config.Libs.DependencyInjection.base)
-    implementation(Config.Libs.DependencyInjection.scope)
-    implementation(Config.Libs.DependencyInjection.viewModel)
-
-    implementation(Config.Libs.Coroutines.core)
-    implementation(Config.Libs.Coroutines.common)
-    implementation(Config.Libs.Coroutines.android)
-
-    implementation(Config.Libs.Firebase.core)
-    implementation(Config.Libs.Firebase.authUI)
-    implementation(Config.Libs.Firebase.authUIGithub)
+    addDependencies(Config.Libs.Design)
+    addDependencies(Config.Libs.AndroidX)
+    addDependencies(Config.Libs.DependencyInjection)
+    addDependencies(Config.Libs.Firebase)
+    addDependencies(Config.Libs.Coroutines)
+    addDependencies(Config.Libs.Ui)
 }
+
+fun DependencyHandler.addDependencies(deps: Config.DependenciesList) {
+    deps.asList().forEach { implementation(it) }
+    deps.asKaptList().forEach { kapt(it) }
+}
+
 apply(plugin = "com.google.gms.google-services")

@@ -22,6 +22,7 @@ object Config {
         const val materialVersion = "1.1.0-alpha03"
         const val koinVersion = "2.0.0-beta-1"
         const val coroutinesVersion = "1.1.1"
+        const val glideVersion = "4.8.0"
     }
 
     object Plugins {
@@ -35,32 +36,56 @@ object Config {
             const val jvm = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
         }
 
-        object Firebase {
-            const val core = "com.google.firebase:firebase-core:${LibsVersions.firebaseCoreVersion}"
-            const val authUI = "com.firebaseui:firebase-ui-auth:${LibsVersions.firebaseAuthUiVersion}"
-            const val authUIGithub = "com.firebaseui:firebase-ui-auth-github:${LibsVersions.firebaseAuthUiVersion}"
+        object Firebase : DependenciesList {
+            private const val core = "com.google.firebase:firebase-core:${LibsVersions.firebaseCoreVersion}"
+            private const val authUI = "com.firebaseui:firebase-ui-auth:${LibsVersions.firebaseAuthUiVersion}"
+            private const val authUIGithub =
+                "com.firebaseui:firebase-ui-auth-github:${LibsVersions.firebaseAuthUiVersion}"
+
+            override fun asList(): List<String> = listOf(core, authUI, authUIGithub)
         }
 
-        object AndroidX {
-            const val appCompat = "androidx.appcompat:appcompat:${LibsVersions.appCompat}"
-            const val coreKtx = "androidx.core:core-ktx:${LibsVersions.coreKtx}"
-            const val constraint = "androidx.constraintlayout:constraintlayout:${LibsVersions.constraint}"
+        object AndroidX : DependenciesList {
+            private const val appCompat = "androidx.appcompat:appcompat:${LibsVersions.appCompat}"
+            private const val coreKtx = "androidx.core:core-ktx:${LibsVersions.coreKtx}"
+            private const val constraint = "androidx.constraintlayout:constraintlayout:${LibsVersions.constraint}"
+
+            override fun asList(): List<String> = listOf(appCompat, coreKtx, constraint)
         }
 
-        object Design {
-            const val material = "com.google.android.material:material:${LibsVersions.materialVersion}"
+        object Design : DependenciesList {
+            private const val material = "com.google.android.material:material:${LibsVersions.materialVersion}"
+            override fun asList(): List<String> = listOf(material)
         }
 
-        object DependencyInjection {
-            const val base = "org.koin:koin-android:${LibsVersions.koinVersion}"
-            const val scope = "org.koin:koin-androidx-scope:${LibsVersions.koinVersion}"
-            const val viewModel = "org.koin:koin-androidx-viewmodel:${LibsVersions.koinVersion}"
+        object Ui : DependenciesList {
+            private const val glide = "com.github.bumptech.glide:glide:${LibsVersions.glideVersion}"
+            private const val glideProcessor = "com.github.bumptech.glide:compiler:${LibsVersions.glideVersion}"
+
+            override fun asList(): List<String> = listOf(glide)
+            override fun asKaptList(): List<String> = listOf(glideProcessor)
         }
 
-        object Coroutines {
-            const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${LibsVersions.coroutinesVersion}"
-            const val common = "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${LibsVersions.coroutinesVersion}"
-            const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${LibsVersions.coroutinesVersion}"
+        object DependencyInjection : DependenciesList {
+            private const val base = "org.koin:koin-android:${LibsVersions.koinVersion}"
+            private const val scope = "org.koin:koin-androidx-scope:${LibsVersions.koinVersion}"
+            private const val viewModel = "org.koin:koin-androidx-viewmodel:${LibsVersions.koinVersion}"
+
+            override fun asList(): List<String> = listOf(base, scope, viewModel)
+        }
+
+        object Coroutines : DependenciesList{
+            private const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${LibsVersions.coroutinesVersion}"
+            private const val common = "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${LibsVersions.coroutinesVersion}"
+            private const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${LibsVersions.coroutinesVersion}"
+
+            override fun asList(): List<String> = listOf(core, common, android)
         }
     }
+
+    interface DependenciesList {
+        fun asList(): List<String> = emptyList()
+        fun asKaptList(): List<String> = emptyList()
+    }
 }
+
