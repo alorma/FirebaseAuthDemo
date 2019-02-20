@@ -42,6 +42,8 @@ class MainActivity : AppCompatActivity() {
                 }
                 signOutButton.visibility = View.GONE
                 signOutButton.setOnClickListener(null)
+                deleteButton.visibility = View.GONE
+                deleteButton.setOnClickListener(null)
             }
             is UserVM.LoggedUser -> {
                 userInfo.visibility = View.VISIBLE
@@ -56,6 +58,10 @@ class MainActivity : AppCompatActivity() {
                 signOutButton.visibility = View.VISIBLE
                 signOutButton.setOnClickListener {
                     onSignOut()
+                }
+                deleteButton.visibility = View.VISIBLE
+                deleteButton.setOnClickListener {
+                    onDelete()
                 }
             }
         }
@@ -80,6 +86,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun onSignOut() {
         AuthUI.getInstance().signOut(this).addOnSuccessListener {
+            mainViewModel.loadUser()
+        }
+    }
+
+    private fun onDelete() {
+        AuthUI.getInstance().delete(this).addOnSuccessListener {
             mainViewModel.loadUser()
         }
     }

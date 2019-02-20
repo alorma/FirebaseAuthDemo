@@ -6,4 +6,5 @@
     <string name="no_phone">No phone</string>
     <string name="signin">SignIn</string>
     <string name="signout">SignOut</string>
+    <string name="delete_account">Delete</string>
 </resources>
