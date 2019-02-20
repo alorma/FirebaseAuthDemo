@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Firebase demo</string>
+    <string name="anonymous_username">Anonymous user</string>
+    <string name="no_username">No name</string>
+    <string name="no_email">No email</string>
+    <string name="no_phone">No phone</string>
 </resources>

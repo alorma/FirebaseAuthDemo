@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import com.alorma.firebaseauth.demo.domain.domainModule
 import com.alorma.firebaseauth.demo.ui.MainViewModel
 import com.alorma.firebaseauth.demo.ui.model.UserVM
 import com.alorma.firebaseauth.demo.ui.uiModule
@@ -19,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        loadKoinModules(domainModule, uiModule)
+        loadKoinModules(uiModule)
 
         mainViewModel.user.observe(this, Observer {
             it?.let { user -> onUser(user) }
