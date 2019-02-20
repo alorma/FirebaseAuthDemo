@@ -23,6 +23,7 @@ object Config {
         const val koinVersion = "2.0.0-beta-1"
         const val coroutinesVersion = "1.1.1"
         const val glideVersion = "4.8.0"
+        const val recyclerViewVersion = "1.1.0-alpha01"
     }
 
     object Plugins {
@@ -49,8 +50,9 @@ object Config {
             private const val appCompat = "androidx.appcompat:appcompat:${LibsVersions.appCompat}"
             private const val coreKtx = "androidx.core:core-ktx:${LibsVersions.coreKtx}"
             private const val constraint = "androidx.constraintlayout:constraintlayout:${LibsVersions.constraint}"
+            private const val recyclerView = "androidx.recyclerview:recyclerview:${LibsVersions.recyclerViewVersion}"
 
-            override fun asList(): List<String> = listOf(appCompat, coreKtx, constraint)
+            override fun asList(): List<String> = listOf(appCompat, coreKtx, constraint, recyclerView)
         }
 
         object Design : DependenciesList {

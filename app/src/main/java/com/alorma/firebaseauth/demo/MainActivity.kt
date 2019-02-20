@@ -3,10 +3,11 @@ package com.alorma.firebaseauth.demo
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.alorma.firebaseauth.demo.ui.MainViewModel
+import com.alorma.firebaseauth.demo.ui.adapter.ForlayoAdapter
 import com.alorma.firebaseauth.demo.ui.model.ForlayoVM
 import com.alorma.firebaseauth.demo.ui.model.UserVM
 import com.alorma.firebaseauth.demo.ui.uiModule
@@ -18,6 +19,8 @@ import org.koin.androidx.viewmodel.ext.viewModel
 import org.koin.core.context.loadKoinModules
 
 class MainActivity : AppCompatActivity() {
+
+    private val adapter: ForlayoAdapter by lazy { ForlayoAdapter() }
 
     private val mainViewModel: MainViewModel by viewModel()
 
@@ -40,6 +43,9 @@ class MainActivity : AppCompatActivity() {
         floating.setOnClickListener {
             mainViewModel.createForlayo()
         }
+
+        forlayosList.adapter = adapter
+        forlayosList.layoutManager = LinearLayoutManager(this)
     }
 
     private fun onUser(user: UserVM) {
@@ -78,7 +84,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onForlayos(forlayos: List<ForlayoVM>) {
-        Toast.makeText(this, "Forlayos: ${forlayos.size}", Toast.LENGTH_SHORT).show()
+        adapter.submitList(forlayos)
     }
 
     private fun onSignIn() {
