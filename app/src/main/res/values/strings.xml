@@ -4,4 +4,5 @@
     <string name="no_username">No name</string>
     <string name="no_email">No email</string>
     <string name="no_phone">No phone</string>
+    <string name="signin">SignIn</string>
 </resources>

@@ -10,7 +10,7 @@ object Config {
     object SdkVersions {
         const val compile = 28
         const val target = 28
-        const val min = 21
+        const val min = 23
     }
 
     object LibsVersions {

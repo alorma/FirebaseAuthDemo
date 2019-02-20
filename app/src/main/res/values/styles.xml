@@ -10,4 +10,24 @@
         <item name="shapeAppearanceLargeComponent">@style/AppShapeAppearance.LargeComponent.Cut</item>
     </style>
 
+    <style name="UserInfo"/>
+
+    <style name="UserInfo.Text">
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:drawableTint">?colorSecondary</item>
+    </style>
+
+    <style name="UserInfo.Text.Person">
+        <item name="android:drawableStart">@drawable/ic_person</item>
+    </style>
+
+    <style name="UserInfo.Text.Email">
+        <item name="android:drawableStart">@drawable/ic_email</item>
+    </style>
+
+    <style name="UserInfo.Text.Phone">
+        <item name="android:drawableStart">@drawable/ic_local_phone</item>
+    </style>
+
 </resources>
