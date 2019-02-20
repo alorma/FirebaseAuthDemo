@@ -27,6 +27,8 @@ android {
 dependencies {
     implementation(Config.Libs.Kotlin.jvm)
 
+    implementation(Config.Libs.AndroidX.appCompat)
+    implementation(Config.Libs.Design.material)
     implementation(Config.Libs.Design.material)
     implementation(Config.Libs.AndroidX.coreKtx)
     implementation(Config.Libs.AndroidX.constraint)

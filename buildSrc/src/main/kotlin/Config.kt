@@ -46,7 +46,7 @@ object Config {
         }
 
         object Design {
-            const val material = "com.google.android.material:material:$${LibsVersions.materialVersion}"
+            const val material = "com.google.android.material:material:${LibsVersions.materialVersion}"
         }
     }
 }

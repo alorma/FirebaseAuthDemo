@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppShapeAppearance.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="AppShapeAppearance.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSize">10dp</item>
+    </style>
+
+    <style name="AppShapeAppearance.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerSize">24dp</item>
+    </style>
+
+    <style name="AppShapeAppearance.SmallComponent.Rounded">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <style name="AppShapeAppearance.SmallComponent.Cut">
+        <item name="cornerFamily">cut</item>
+    </style>
+
+    <style name="AppShapeAppearance.MediumComponent.Rounded">
+        <item name="cornerFamily">cut</item>
+    </style>
+
+    <style name="AppShapeAppearance.MediumComponent.Cut">
+        <item name="cornerFamily">cut</item>
+    </style>
+
+    <style name="AppShapeAppearance.LargeComponent.Rounded">
+        <item name="cornerFamily">cut</item>
+    </style>
+    <style name="AppShapeAppearance.LargeComponent.Cut">
+        <item name="cornerFamily">cut</item>
+    </style>
+</resources>

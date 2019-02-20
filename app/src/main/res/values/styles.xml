@@ -4,6 +4,10 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorSecondary">@color/colorSecondary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+
+        <item name="shapeAppearanceSmallComponent">@style/AppShapeAppearance.SmallComponent.Cut</item>
+        <item name="shapeAppearanceMediumComponent">@style/AppShapeAppearance.MediumComponent.Cut</item>
+        <item name="shapeAppearanceLargeComponent">@style/AppShapeAppearance.LargeComponent.Cut</item>
     </style>
 
 </resources>
