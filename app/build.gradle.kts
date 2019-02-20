@@ -33,9 +33,13 @@ dependencies {
     implementation(Config.Libs.AndroidX.coreKtx)
     implementation(Config.Libs.AndroidX.constraint)
 
-    implementation(Config.Libs.DependencyInjection.koinBase)
-    implementation(Config.Libs.DependencyInjection.koinScope)
-    implementation(Config.Libs.DependencyInjection.koinViewModel)
+    implementation(Config.Libs.DependencyInjection.base)
+    implementation(Config.Libs.DependencyInjection.scope)
+    implementation(Config.Libs.DependencyInjection.viewModel)
+
+    implementation(Config.Libs.Coroutines.core)
+    implementation(Config.Libs.Coroutines.common)
+    implementation(Config.Libs.Coroutines.android)
 
     implementation(Config.Libs.Firebase.core)
     implementation(Config.Libs.Firebase.authUI)

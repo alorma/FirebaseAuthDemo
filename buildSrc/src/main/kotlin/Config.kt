@@ -21,6 +21,7 @@ object Config {
         const val constraint = "1.1.3"
         const val materialVersion = "1.1.0-alpha03"
         const val koinVersion = "2.0.0-beta-1"
+        const val coroutinesVersion = "1.1.1"
     }
 
     object Plugins {
@@ -51,9 +52,15 @@ object Config {
         }
 
         object DependencyInjection {
-            const val koinBase = "org.koin:koin-android:${LibsVersions.koinVersion}"
-            const val koinScope = "org.koin:koin-androidx-scope:${LibsVersions.koinVersion}"
-            const val koinViewModel = "org.koin:koin-androidx-viewmodel:${LibsVersions.koinVersion}"
+            const val base = "org.koin:koin-android:${LibsVersions.koinVersion}"
+            const val scope = "org.koin:koin-androidx-scope:${LibsVersions.koinVersion}"
+            const val viewModel = "org.koin:koin-androidx-viewmodel:${LibsVersions.koinVersion}"
+        }
+
+        object Coroutines {
+            const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${LibsVersions.coroutinesVersion}"
+            const val common = "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${LibsVersions.coroutinesVersion}"
+            const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${LibsVersions.coroutinesVersion}"
         }
     }
 }
