@@ -1,0 +1,27 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenLocal()
+    }
+    dependencies {
+        classpath(Config.Plugins.android)
+        classpath(Config.Plugins.kotlin)
+        classpath(Config.Plugins.google)
+    }
+}
+
+// See https://github.com/gradle/kotlin-dsl/issues/607#issuecomment-375687119
+subprojects { parent!!.path.takeIf { it != rootProject.path }?.let { evaluationDependsOn(it) } }
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenLocal()
+    }
+}
+
+tasks.register("clean", Delete::class.java) {
+    delete(rootProject.buildDir)
+}
