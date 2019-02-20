@@ -19,6 +19,7 @@ object Config {
         const val appCompat = "1.1.0-alpha02"
         const val coreKtx = "1.1.0-alpha04"
         const val constraint = "1.1.3"
+        const val materialVersion = "1.1.0-alpha03"
     }
 
     object Plugins {
@@ -42,6 +43,10 @@ object Config {
             const val appCompat = "androidx.appcompat:appcompat:${LibsVersions.appCompat}"
             const val coreKtx = "androidx.core:core-ktx:${LibsVersions.coreKtx}"
             const val constraint = "androidx.constraintlayout:constraintlayout:${LibsVersions.constraint}"
+        }
+
+        object Design {
+            const val material = "com.google.android.material:material:$${LibsVersions.materialVersion}"
         }
     }
 }
