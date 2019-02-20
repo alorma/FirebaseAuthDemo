@@ -30,11 +30,5 @@ dependencies {
     implementation(Config.Libs.AndroidX.appCompat)
     implementation(Config.Libs.AndroidX.coreKtx)
     implementation(Config.Libs.AndroidX.constraint)
-
-    /*
-    testImplementation("junit:junit:4.12")
-    androidTestImplementation("androidx.test:runner:1.1.2-alpha01")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.1.2-alpha01")
-    */
 }
 apply(plugin = "com.google.gms.google-services")
