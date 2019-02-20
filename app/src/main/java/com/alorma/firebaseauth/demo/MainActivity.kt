@@ -75,6 +75,7 @@ class MainActivity : AppCompatActivity() {
                     AuthUI.IdpConfig.AnonymousBuilder().build(),
                     AuthUI.IdpConfig.EmailBuilder().build(),
                     AuthUI.IdpConfig.PhoneBuilder().build(),
+                    AuthUI.IdpConfig.GoogleBuilder().build(),
                     AuthUI.IdpConfig.GitHubBuilder().build()
                 )
             )
