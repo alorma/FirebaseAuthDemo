@@ -8,6 +8,7 @@ import com.alorma.firebaseauth.demo.ui.MainViewModel
 import com.alorma.firebaseauth.demo.ui.model.UserVM
 import com.alorma.firebaseauth.demo.ui.uiModule
 import com.bumptech.glide.Glide
+import com.firebase.ui.auth.AuthUI
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_user_layout.*
 import org.koin.androidx.viewmodel.ext.viewModel
@@ -54,6 +55,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onSignIn() {
+        val intent = AuthUI.getInstance()
+            .createSignInIntentBuilder()
+            .setAvailableProviders(
+                listOf(
+                    AuthUI.IdpConfig.AnonymousBuilder().build(),
+                    AuthUI.IdpConfig.EmailBuilder().build(),
+                    AuthUI.IdpConfig.PhoneBuilder().build(),
+                    AuthUI.IdpConfig.GitHubBuilder().build()
+                )
+            )
+            .setLogo(R.mipmap.ic_launcher_round)
+            .build()
 
+        startActivityForResult(intent, REQUEST_LOGIN)
+    }
+
+    companion object {
+        const val REQUEST_LOGIN = 112
     }
 }
