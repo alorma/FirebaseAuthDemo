@@ -26,9 +26,13 @@ android {
 
 dependencies {
     implementation(Config.Libs.Kotlin.jvm)
-    implementation(Config.Libs.Firebase.core)
+
     implementation(Config.Libs.AndroidX.appCompat)
     implementation(Config.Libs.AndroidX.coreKtx)
     implementation(Config.Libs.AndroidX.constraint)
+
+    implementation(Config.Libs.Firebase.core)
+    implementation(Config.Libs.Firebase.authUI)
+    implementation(Config.Libs.Firebase.authUIGithub)
 }
 apply(plugin = "com.google.gms.google-services")

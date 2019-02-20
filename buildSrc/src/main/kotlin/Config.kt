@@ -15,6 +15,7 @@ object Config {
 
     object LibsVersions {
         const val firebaseCoreVersion = "16.0.7"
+        const val firebaseAuthUiVersion = "4.3.1"
         const val appCompat = "1.1.0-alpha02"
         const val coreKtx = "1.1.0-alpha04"
         const val constraint = "1.1.3"
@@ -33,6 +34,8 @@ object Config {
 
         object Firebase {
             const val core = "com.google.firebase:firebase-core:${LibsVersions.firebaseCoreVersion}"
+            const val authUI = "com.firebaseui:firebase-ui-auth:${LibsVersions.firebaseAuthUiVersion}"
+            const val authUIGithub = "com.firebaseui:firebase-ui-auth-github:${LibsVersions.firebaseAuthUiVersion}"
         }
 
         object AndroidX {
