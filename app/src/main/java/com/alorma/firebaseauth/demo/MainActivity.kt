@@ -3,9 +3,11 @@ package com.alorma.firebaseauth.demo
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.alorma.firebaseauth.demo.ui.MainViewModel
+import com.alorma.firebaseauth.demo.ui.model.ForlayoVM
 import com.alorma.firebaseauth.demo.ui.model.UserVM
 import com.alorma.firebaseauth.demo.ui.uiModule
 import com.bumptech.glide.Glide
@@ -29,7 +31,15 @@ class MainActivity : AppCompatActivity() {
             it?.let { user -> onUser(user) }
         })
 
+        mainViewModel.forlayos.observe(this, Observer {
+            it?.let { forlayos -> onForlayos(forlayos) }
+        })
+
         mainViewModel.loadUser()
+
+        floating.setOnClickListener {
+            mainViewModel.createForlayo()
+        }
     }
 
     private fun onUser(user: UserVM) {
@@ -65,6 +75,10 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun onForlayos(forlayos: List<ForlayoVM>) {
+        Toast.makeText(this, "Forlayos: ${forlayos.size}", Toast.LENGTH_SHORT).show()
     }
 
     private fun onSignIn() {
