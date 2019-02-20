@@ -7,3 +7,4 @@ build
 /captures
 .externalNativeBuild
 app/google-services.json
+app/src/main/res/values/auth_credentials.xml
