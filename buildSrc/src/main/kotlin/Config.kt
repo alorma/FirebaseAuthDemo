@@ -20,6 +20,7 @@ object Config {
         const val coreKtx = "1.1.0-alpha04"
         const val constraint = "1.1.3"
         const val materialVersion = "1.1.0-alpha03"
+        const val koinVersion = "2.0.0-beta-1"
     }
 
     object Plugins {
@@ -47,6 +48,11 @@ object Config {
 
         object Design {
             const val material = "com.google.android.material:material:${LibsVersions.materialVersion}"
+        }
+
+        object DependencyInjection {
+            const val koinBase = "org.koin:koin-android:${LibsVersions.koinVersion}"
+            const val koinViewModel = "org.koin:koin-androidx-viewmodel:${LibsVersions.koinVersion}"
         }
     }
 }
