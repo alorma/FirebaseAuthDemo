@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import com.alorma.firebaseauth.demo.ui.MainViewModel
 import com.alorma.firebaseauth.demo.ui.model.UserVM
 import com.alorma.firebaseauth.demo.ui.uiModule
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_user_layout.*
 import org.koin.androidx.viewmodel.ext.viewModel
@@ -45,6 +46,9 @@ class MainActivity : AppCompatActivity() {
                 userName.text = user.userName
                 userEmail.text = user.email
                 userPhone.text = user.phone
+                userAvatar?.let {
+                    Glide.with(userAvatar).load(user.avatar).into(userAvatar)
+                }
             }
         }
     }
